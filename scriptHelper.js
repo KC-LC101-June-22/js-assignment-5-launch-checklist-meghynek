@@ -19,7 +19,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 function validateInput(testInput) {
     if (testInput === ''){
         return "Empty"
-       } else if (typeof(testInput) != "number"){
+       } else if (isNaN(testInput) === true){
          return "Not a Number"
         } else if (typeof(testInput) === "number"){
          return "Is a Number"
@@ -27,7 +27,23 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+   // document?
+
+   // list?
+
+   // pilot
+   this.pilot = pilot;
+   if (validateInput(pilot) === "Is a Number"){
+// rejoice?
+   } else if (validateInput(pilot) === "Empty"){
+    alert("All fields required.")
+   } else if (validateInput(pilot) === "Is a Number"){
+    alert("Please enter the pilot's name.")
+   }
+
+// copilot
+this.copilot = copilot;
+
 }
 
 async function myFetch() {
