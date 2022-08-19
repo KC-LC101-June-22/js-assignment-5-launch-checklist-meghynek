@@ -27,39 +27,48 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+    document.getElementById("faultyItems").style.visibility = "visible";
     this.document = document
     // list?
     this.list = list
     // pilot
     this.pilot = pilot;
-    if (validateInput(pilot) === "Is a Number") {
-        document.getElementById('pilotStatus').innerHTML = '<li>`Pilot &{pilot} is ready`</li>'
+    if (validateInput(pilot) === "Not a Number") {
+        document.getElementById('pilotStatus').innerHTML = '<ol><li>`Pilot &{pilot} is ready`</li></ol>'
     } else if (validateInput(pilot) === "Empty") {
-        alert("All fields required.")
+        document.getElementById('pilotStatus').innerHTML = '<li>`Pilot name not entered.`</li>'
     } else if (validateInput(pilot) === "Is a Number") {
-        alert("Please enter the pilot's name.")
+        document.getElementById('pilotStatus').innerHTML = '<li>`Pilot name not entered.`</li>'
     }
 
     // copilot
     this.copilot = copilot;
-    if (validateInput(copilot) === "Is a Number") {
-        // rejoice?
+    if (validateInput(copilot) === "Not a Number") {
+        document.getElementById('pilotStatus').innerHTML = '<ol><li>`Copilot &{copilot} is ready`</li></ol>'
     } else if (validateInput(copilot) === "Empty") {
-        alert("All fields required.")
+        document.getElementById('pilotStatus').innerHTML = '<ol><li>`All fields required.`</li></ol>'
     } else if (validateInput(copilot) === "Is a Number") {
-        alert("Please enter the copilot's name.")
+        document.getElementById('pilotStatus').innerHTML = '<li>Please enter the name of the copilot.</li>'
     }
 
     // fuelLevel
     this.fuelLevel = fuelLevel;
-    if (fuelLevel <= 100000) {
-        alert("There is not enough fuel for the journey.")
-    } 
+    if (validateInput(fuelLevel) === "Is a Number" && validateInput(fuelLevel) <= 100000) {
+        document.getElementById('fuelStatus').innerHTML = '<ol><li>`There is not enough fuel for journey.`</li></ol>'
+    } else if (validateInput(fuelLevel) === "Is a Number" && validateInput(fuelLevel) >= 100000) {
+        document.getElementById('fuelStatus').innerHTML = '<ol><li>`Sufficient fuel levels for journey.`</li></ol>'
+    } else if (validateInput(fuelLevel) = "Empty") {
+        document.getElementById('fuelStatus').innerHTML = '<ol><li>`Please enter the fuel levels for journey.`</li></ol>'
+    } else if (validateInput(fuelLevel) === "Not a Number"){
+        document.getElementById('fuelStatus').innerHTML = '<ol><li>`Please enter the fuel levels for journey.`</li></ol>'
+    }
 
 //cargoLevel
 this.cargoLevel = cargoLevel
-if (cargoLevel<= 100000) {
-    alert("There is too much cargo mass for the journey.")
+if (validateInput(cargoLevel) === "Is a Number" && validateInput(cargoLevel) <= 100000) {
+    document.getElementById('cargoMass').innerHTML = <li>"There is too much cargo mass for the journey."</li>
+} else if (validateInput(cargoLevel) === "Is a Number" && validateInput(cargoLevel) >= 100000){
+    document.getElementById('cargoMass').innerHTML = <li>'Cargo mass is at ${cargoLevel}</li>
 }
 };
 
