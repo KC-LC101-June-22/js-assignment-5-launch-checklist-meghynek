@@ -29,7 +29,7 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     this.document = document
     // list?
-this.list = list
+    this.list = list
     // pilot
     this.pilot = pilot;
     if (validateInput(pilot) === "Is a Number") {
@@ -49,13 +49,19 @@ this.list = list
     } else if (validateInput(copilot) === "Is a Number") {
         alert("Please enter the copilot's name.")
     }
+
     // fuelLevel
     this.fuelLevel = fuelLevel;
     if (fuelLevel <= 100000) {
         alert("There is not enough fuel for the journey.")
-    } else if (f)
+    } 
+
 //cargoLevel
+this.cargoLevel = cargoLevel
+if (cargoLevel<= 100000) {
+    alert("There is too much cargo mass for the journey.")
 }
+};
 
 async function myFetch() {
     let planetsReturned;
