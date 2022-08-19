@@ -33,6 +33,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     this.list = list
     // pilot
     this.pilot = pilot;
+    alert(`Pilot: ${pilot}`)
     if (validateInput(pilot) === "Not a Number") {
         document.getElementById('pilotStatus').innerHTML = '<ol><li>`Pilot &{pilot} is ready`</li></ol>'
     } else if (validateInput(pilot) === "Empty") {
@@ -43,6 +44,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     // copilot
     this.copilot = copilot;
+    alert(`Copilot: ${copilot}`)
     if (validateInput(copilot) === "Not a Number") {
         document.getElementById('pilotStatus').innerHTML = '<ol><li>`Copilot &{copilot} is ready`</li></ol>'
     } else if (validateInput(copilot) === "Empty") {
@@ -66,9 +68,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 //cargoLevel
 this.cargoLevel = cargoLevel
 if (validateInput(cargoLevel) === "Is a Number" && validateInput(cargoLevel) <= 100000) {
-    document.getElementById('cargoMass').innerHTML = <li>"There is too much cargo mass for the journey."</li>
+    document.getElementById('cargoMass').innerHTML = '<li>"There is too much cargo mass for the journey."</li>'
 } else if (validateInput(cargoLevel) === "Is a Number" && validateInput(cargoLevel) >= 100000){
-    document.getElementById('cargoMass').innerHTML = <li>'Cargo mass is at ${cargoLevel}</li>
+    document.getElementById('cargoMass').innerHTML = '<li>`Cargo mass is at ${cargoLevel}`</li>'
 }
 };
 
