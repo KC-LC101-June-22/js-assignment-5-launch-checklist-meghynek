@@ -33,20 +33,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     this.list = list
     // pilot
     this.pilot = pilot;
-    alert(`Pilot: ${pilot}`)
+    //alert(`Pilot: ${pilot}`)
+    console.log(pilot);
     if (validateInput(pilot) === "Not a Number") {
-        document.getElementById('pilotStatus').innerHTML = '<ol><li>`Pilot &{pilot} is ready`</li></ol>'
+        document.getElementById('pilotStatus').innerHTML += '<ol><li>`Pilot ${pilot} is ready`</li></ol>'
     } else if (validateInput(pilot) === "Empty") {
-        document.getElementById('pilotStatus').innerHTML = '<li>`Pilot name not entered.`</li>'
+        document.getElementById('pilotStatus').innerHTML += '<li>`Pilot name not entered.`</li>'
     } else if (validateInput(pilot) === "Is a Number") {
-        document.getElementById('pilotStatus').innerHTML = '<li>`Pilot name not entered.`</li>'
+        document.getElementById('pilotStatus').innerHTML += '<li>`Pilot name not entered.`</li>'
     }
 
     // copilot
     this.copilot = copilot;
-    alert(`Copilot: ${copilot}`)
+    console.log(copilot);
+    //alert(`Copilot: ${copilot}`)
     if (validateInput(copilot) === "Not a Number") {
-        document.getElementById('pilotStatus').innerHTML = '<ol><li>`Copilot &{copilot} is ready`</li></ol>'
+        document.getElementById('pilotStatus').innerHTML = `Copilot ${copilot} is ready`
     } else if (validateInput(copilot) === "Empty") {
         document.getElementById('pilotStatus').innerHTML = '<ol><li>`All fields required.`</li></ol>'
     } else if (validateInput(copilot) === "Is a Number") {
