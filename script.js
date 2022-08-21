@@ -16,29 +16,30 @@ window.addEventListener("load", function () {
    //        // Below this comment, call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
    //    })
    //let document = this.document;
-  
+
    let list = null;
 
    let pilotInputFull = document.getElementById("pilotName");
-console.log(pilotInputFull)
+   //console.log(pilotInputFull)
    let pilotInput = pilotInputFull.value;
    alert("pilot: " + pilotInput);
-   alert(pilotInput);
-console.log(pilotInput);
+
+   let copilotInputFull = document.getElementById("copilotName");
+   let copilotInput = copilotInputFull.value;
+
+   let fuelLevelInputFull = document.getElementById("fuelLevel");
+   let fuelLevelInput = fuelLevelInputFull.value;
+
+   let cargoLevelInputFull = document.getElementById("cargoMass");
+   let cargoLevelInput = cargoLevelInputFull.value;
 
 
-
-   let copilotInput = document.querySelector("#copilotName");
-   let fuelLevelInput = document.querySelector("#fuelLevel");
-   let cargoLevelInput = document.querySelector("#cargoMass");
-
-
-let form = this.document.querySelector("form");
-form.addEventListener("submit", function(event){
-   alert("submit clicked");
-   formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
-event.preventDefault()
-});
+   let form = this.document.querySelector("form");
+   form.addEventListener("submit", function (event) {
+      alert("submit clicked");
+      formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
+      //event.preventDefault()
+   });
    //document.getElementById("faultyItems").style.visibility = "visible";
 
 });
