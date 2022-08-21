@@ -1,6 +1,9 @@
 // Write your JavaScript code here!
 
+//const { formSubmission } = require("./scriptHelper");
+
 window.addEventListener("load", function () {
+
 
    //    let listedPlanets;
    //    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -19,9 +22,13 @@ window.addEventListener("load", function () {
    let fuelLevel = document.querySelector("#fuelLevel");
    let cargoLevel = document.querySelector("#cargoMass");
 
-   console.log(pilotInput);
+   //console.log(pilotInput);
    formSubmission(document, null, pilotInput, copilot, fuelLevel, cargoLevel);
 
+   let button = document.getElementById("formsubmit")
+   button.addEventListener("click", function (event) {
+      event.preventDefault();
+   })
    document.getElementById("faultyItems").style.visibility = "visible";
 
 });
