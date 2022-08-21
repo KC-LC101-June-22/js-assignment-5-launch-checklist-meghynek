@@ -16,19 +16,44 @@ window.addEventListener("load", function () {
    //        // Below this comment, call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
    //    })
    //let document = this.document;
+  
    let list = null;
-   let pilotInput = document.querySelector("#pilotName");
-   let copilot = document.querySelector("#copilotName");
-   let fuelLevel = document.querySelector("#fuelLevel");
-   let cargoLevel = document.querySelector("#cargoMass");
 
-   //console.log(pilotInput);
-   formSubmission(document, null, pilotInput, copilot, fuelLevel, cargoLevel);
+   let pilotInputFull = document.getElementById("pilotName");
+console.log(pilotInputFull)
+   let pilotInput = pilotInputFull.value;
+   alert("pilot: " + pilotInput);
+   alert(pilotInput);
+console.log(pilotInput);
 
-   let button = document.getElementById("formsubmit")
-   button.addEventListener("click", function (event) {
-      event.preventDefault();
-   })
-   document.getElementById("faultyItems").style.visibility = "visible";
+
+
+   let copilotInput = document.querySelector("#copilotName");
+   let fuelLevelInput = document.querySelector("#fuelLevel");
+   let cargoLevelInput = document.querySelector("#cargoMass");
+
+
+let form = this.document.querySelector("form");
+form.addEventListener("submit", function(event){
+   alert("submit clicked");
+   formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
+event.preventDefault()
+});
+   //document.getElementById("faultyItems").style.visibility = "visible";
 
 });
+
+// form.getElementById("formSubmit").addEventListener("click", function(event){
+//    event.preventDefault()
+//    let list = null;
+//    // let pilotInput = document.querySelector("#pilotName");
+//    let pilotInput = document.querySelector("input=[pilotName]");
+// console.log(pilotInput);
+//    let copilotInput = document.querySelector("#copilotName");
+//    let fuelLevelInput = document.querySelector("#fuelLevel");
+//    let cargoLevelInput = document.querySelector("#cargoMass");
+
+//    console.log(pilotInput);
+   // formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
+
+// });
