@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
    form.addEventListener("submit", function (event) {
       alert("submit clicked");
       formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
-      //event.preventDefault()
+      event.preventDefault()
    });
    //document.getElementById("faultyItems").style.visibility = "visible";
 
