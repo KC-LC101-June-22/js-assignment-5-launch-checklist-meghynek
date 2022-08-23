@@ -42,11 +42,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         event.preventDefault();
     } 
     
-    // if incorrect stuff input
+    // if incorrect stuff input, alert
     else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" ||validateInput(fuelLevel) === "Not a Number"){
         alert("Make sure to enter valid information for each field!")
+        event.preventDefault();
     }
-    // correct stuff input
+    // correct stuff input, show list
     else if (validateInput(pilot) === "Not a Number" || validateInput(copilot) === "Not a Number" || validateInput(fuelLevel) === "Is a Number" ||validateInput(fuelLevel) === "Is a Number") {
         document.getElementById("faultyItems").style.visibility = "visible";
         document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready.`

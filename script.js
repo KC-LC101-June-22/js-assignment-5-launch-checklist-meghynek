@@ -17,28 +17,45 @@ window.addEventListener("load", function () {
    //    })
    //let document = this.document;
 
-   let list = null;
+   // let list = null;
 
-   let pilotInputFull = document.getElementById("pilotName");
-   //console.log(pilotInputFull)
-   let pilotInput = pilotInputFull.value;
-   alert("pilot: " + pilotInput);
+   // let pilotInputFull = document.getElementById("pilotName");
+   // //console.log(pilotInputFull)
+   // let pilotInput = pilotInputFull.value;
+   // alert("pilot: " + pilotInput);
 
-   let copilotInputFull = document.getElementById("copilotName");
-   let copilotInput = copilotInputFull.value;
+   // let copilotInputFull = document.getElementById("copilotName");
+   // let copilotInput = copilotInputFull.value;
 
-   let fuelLevelInputFull = document.getElementById("fuelLevel");
-   let fuelLevelInput = fuelLevelInputFull.value;
+   // let fuelLevelInputFull = document.getElementById("fuelLevel");
+   // let fuelLevelInput = fuelLevelInputFull.value;
 
-   let cargoLevelInputFull = document.getElementById("cargoMass");
-   let cargoLevelInput = cargoLevelInputFull.value;
+   // let cargoLevelInputFull = document.getElementById("cargoMass");
+   // let cargoLevelInput = cargoLevelInputFull.value;
 
 
    let form = this.document.querySelector("form");
    form.addEventListener("submit", function (event) {
+      let list = null;
+
+      let pilotInputFull = document.getElementById("pilotName");
+      //console.log(pilotInputFull)
+      let pilotInput = pilotInputFull.value;
+      alert("pilot: " + pilotInput);
+   
+      let copilotInputFull = document.getElementById("copilotName");
+      let copilotInput = copilotInputFull.value;
+   
+      let fuelLevelInputFull = document.getElementById("fuelLevel");
+      let fuelLevelInput = fuelLevelInputFull.value;
+   
+      let cargoLevelInputFull = document.getElementById("cargoMass");
+      let cargoLevelInput = cargoLevelInputFull.value;
+   
+      event.preventDefault()
       alert("submit clicked");
       formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
-      event.preventDefault()
+ 
    });
    //document.getElementById("faultyItems").style.visibility = "visible";
 
