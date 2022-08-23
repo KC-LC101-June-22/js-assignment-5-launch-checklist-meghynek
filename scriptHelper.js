@@ -37,29 +37,60 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 
     // if empty, alert
-    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
         alert("All fields must be completed.")
-        event.preventDefault();
-    } 
-    
-    // if incorrect stuff input, alert
-    else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" ||validateInput(fuelLevel) === "Not a Number"){
-        alert("Make sure to enter valid information for each field!")
-        event.preventDefault();
+        //event.preventDefault();
     }
-    // correct stuff input, show list
-    else if (validateInput(pilot) === "Not a Number" || validateInput(copilot) === "Not a Number" || validateInput(fuelLevel) === "Is a Number" ||validateInput(fuelLevel) === "Is a Number") {
+
+    // if incorrect stuff input, alert
+    else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" || validateInput(fuelLevel) === "Not a Number") {
+        alert("Make sure to enter valid information for each field!")
+        //event.preventDefault();
+    }
+    // correct stuff input, all is well
+    else if (validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" && (validateInput(fuelLevel) === "Is a Number" && fuelLevel >= 10000) && (validateInput(cargoLevel) === "Is a Number" && cargoLevel <= 10000)) {
         document.getElementById("faultyItems").style.visibility = "visible";
         document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready.`
         document.getElementById('copilotStatus').innerHTML = `Copilot ${copilot} is ready`;
-            if (fuelLevel <= 10000){
-                document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch.'
-            };
-            if (cargoLevel <= 100000){
-                document.getElementById('cargoMass').innerHTML = "Cargo mass too high for launch."
-            }
+        document.getElementById('launchStatus').innerHTML = 'Shuttle is ready for launch.'
+
+        // if (fuelLevel <= 10000){
+        //     document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch.'
+        // };
+        // if (cargoLevel >= 100000){
+        //     document.getElementById('cargoMass').innerHTML = "Cargo mass too high for launch."
     }
-    };
+
+    // correct input, not enough fuel 
+    else if (validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" && (validateInput(fuelLevel) === "Is a Number" && fuelLevel <= 10000) || (validateInput(cargoLevel) === "Is a Number" && cargoLevel <= 10000)) {
+        document.getElementById("faultyItems").style.visibility = "visible";
+        document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready.`
+        document.getElementById('copilotStatus').innerHTML = `Copilot ${copilot} is ready`;
+        document.getElementById('fuelLevel').innerHTML = 'Fuel level too low for launch'
+        document.getElementById('launchStatus').innerHTML = 'Shuttle not ready for launch.'
+
+}
+ // correct input, too much cargo 
+ else if (validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" && (validateInput(fuelLevel) === "Is a Number" && fuelLevel >= 10000) || (validateInput(cargoLevel) === "Is a Number" && cargoLevel >= 10000)) {
+    document.getElementById("faultyItems").style.visibility = "visible";
+    document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready.`
+    document.getElementById('copilotStatus').innerHTML = `Copilot ${copilot} is ready`;
+    document.getElementById('cargoLass').innerHTML = 'Cargo mass too high for launch'
+    document.getElementById('launchStatus').innerHTML = 'Shuttle not ready for launch.'
+
+ }
+  // correct input, too much cargo AND too little fuel
+  else if (validateInput(pilot) === "Not a Number" && validateInput(copilot) === "Not a Number" && (validateInput(fuelLevel) === "Is a Number" && fuelLevel <= 10000) || (validateInput(cargoLevel) === "Is a Number" && cargoLevel >= 10000)) {
+    document.getElementById("faultyItems").style.visibility = "visible";
+    document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready.`
+    document.getElementById('copilotStatus').innerHTML = `Copilot ${copilot} is ready`;
+    document.getElementById('cargoLass').innerHTML = 'Cargo mass too high for launch'
+    document.getElementById('fuelLevel').innerHTML = 'Fuel level too low for launch'
+    document.getElementById('launchStatus').innerHTML = 'Shuttle not ready for launch.'
+
+
+ }
+}; //end bracket
 
 
 async function myFetch() {
