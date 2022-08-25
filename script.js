@@ -16,22 +16,6 @@ window.addEventListener("load", function () {
    //        // Below this comment, call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
    //    })
 
-   // let list = null;
-
-   // let pilotInputFull = document.getElementById("pilotName");
-   // //console.log(pilotInputFull)
-   // let pilotInput = pilotInputFull.value;
-   // alert("pilot: " + pilotInput);
-
-   // let copilotInputFull = document.getElementById("copilotName");
-   // let copilotInput = copilotInputFull.value;
-
-   // let fuelLevelInputFull = document.getElementById("fuelLevel");
-   // let fuelLevelInput = fuelLevelInputFull.value;
-
-   // let cargoLevelInputFull = document.getElementById("cargoMass");
-   // let cargoLevelInput = cargoLevelInputFull.value;
-
 
    let form = this.document.querySelector("form");
    form.addEventListener("submit", function (event) {
@@ -56,29 +40,5 @@ window.addEventListener("load", function () {
       formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
  
    });
-   // //document.getElementById("faultyItems").style.visibility = "visible";
 
 });
-//let form = this.document.querySelector("form");
-// document.getElementById("formSubmit").addEventListener("click", function(event){
-//    event.preventDefault()
-
-// let list = null;
-
-// let pilotInputFull = document.getElementById("pilotName");
-// //console.log(pilotInputFull)
-// let pilotInput = pilotInputFull.value;
-// alert("pilot: " + pilotInput);
-
-// let copilotInputFull = document.getElementById("copilotName");
-// let copilotInput = copilotInputFull.value;
-
-// let fuelLevelInputFull = document.getElementById("fuelLevel");
-// let fuelLevelInput = fuelLevelInputFull.value;
-
-// let cargoLevelInputFull = document.getElementById("cargoMass");
-// let cargoLevelInput = cargoLevelInputFull.value;
-//    console.log(pilotInput);
-//    formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
-
-// });
