@@ -27,7 +27,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     document.getElementById('missionTarget').innerHTML +=
         </ol> 
 
-        < img src = '' > `
+        < img src = ${imageUrl} > `
 }
 
 function validateInput(testInput) {

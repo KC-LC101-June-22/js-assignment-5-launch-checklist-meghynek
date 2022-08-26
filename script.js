@@ -19,7 +19,13 @@ window.addEventListener("load", function () {
           let missionPlanet = pickPlanet(listedPlanets);
           console.log(missionPlanet);
           //pull planet object, list items for addDestinationInfo parameters
-          addDestinationInfo()
+          let planetName = missionPlanet.planetName;
+          let diameter = missionPlanet.diameter;
+          let star = missionPlanet.star;
+          let distance = missionPlanet.distance;
+          let moons = missionPlanet.moons;
+          let imageUrl = missionPlanet.image;
+          addDestinationInfo(document, planetName, diameter, star, distance, moons, imageUrl)
       })
 
 
