@@ -1,15 +1,16 @@
 // Write your JavaScript code here!
 
-const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
+//const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 //const { formSubmission } = require("./scriptHelper");
 
 window.addEventListener("load", function () {
 
 
-      let listedPlanets;
-      // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-      let listedPlanetsResponse = myFetch();
+       let listedPlanets;
+       // Set listedPlanetsResponse equal to the value returned by calling myFetch()
+       let listedPlanetsResponse = myFetch();
+       console.log(listedPlanets);
       listedPlanetsResponse.then(function (result) {
           listedPlanets = result;
           console.log(listedPlanets);

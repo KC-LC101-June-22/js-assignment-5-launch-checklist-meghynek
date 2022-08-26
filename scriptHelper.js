@@ -101,7 +101,7 @@ function pickPlanet(planets) {
 this.planets = planets;
 let parsedPlanets = JSON.parse(planets)
     //use math.random() to pick a planet using a randomly-selected index
-    let randomIndex =Math.floor(Math.random()*6 + 1)
+    let randomIndex = Math.floor(Math.random()*6 + 1)
     //use the random index to select the lucky planet
     let selectedPlanet = parsedPlanets[randomIndex]
     console.log(selectedPlanet);
