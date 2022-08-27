@@ -64,28 +64,28 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     // correct stuff input, all is well
     else if (validateInput(pilot) === "Not a Number" || validateInput(copilot) === "Not a Number" || validateInput(fuelLevel) === "Is a Number" || validateInput(cargoLevel) === "Is a Number") {
         document.getElementById("faultyItems").style.visibility = "visible";
-        document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready for launch.`
-        document.getElementById('copilotStatus').innerHTML = `Copilot ${copilot} is ready for launch`;
-        document.getElementById('launchStatus').innerHTML = 'Shuttle is Ready for Launch.';
+        document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready for launch`
+        document.getElementById('copilotStatus').innerHTML = `Co-pilot ${copilot} is ready for launch`;
+        document.getElementById('launchStatus').innerHTML = 'Shuttle is Ready for Launch';
         document.getElementById("launchStatus").style.color = 'rgb(65, 159, 106)';
 
         if (fuelLevel < 10000 || cargoLevel > 10000) {
 
-            document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch.'
+            document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch'
             document.getElementById("launchStatus").style.color = 'rgb(199, 37, 78)';
             if (fuelLevel < 10000) {
-                document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch.'
+                document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch'
             } 
             if (cargoLevel > 100000) {
-                document.getElementById('cargoStatus').innerHTML = "Cargo mass too high for launch."
+                document.getElementById('cargoStatus').innerHTML = "Cargo mass too heavy for launch"
             }
         }
         if (fuelLevel >= 10000 && cargoLevel <= 10000) {
 
-                document.getElementById('launchStatus').innerHTML = 'Shuttle is Ready for Launch.'
+                document.getElementById('launchStatus').innerHTML = 'Shuttle is Ready for Launch'
                 document.getElementById("launchStatus").style.color = 'rgb(65, 159, 106)';
-                document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch.'
-                document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch."
+                document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch'
+                document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch"
             }
 
             // } else if (fuelLevel >= 10000){
