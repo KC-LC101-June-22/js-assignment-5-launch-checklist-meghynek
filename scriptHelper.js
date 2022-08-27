@@ -12,22 +12,22 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     this.imageUrl = imageUrl
 
     // Here is the HTML formatting for our mission target div.
-    document.getElementById('missionTarget').innerHTML +=
+    document.getElementById('missionTarget').innerHTML =
        ` <h2>Mission Destination</h2>
-    document.getElementById('missionTarget').innerHTML +=
+    
         <ol>
-        < li > Name: ${name}</li >
-    document.getElementById('missionTarget').innerHTML +=
+        <li> Name: ${name}</li>
+    
         <li>Diameter: ${diameter}</li>
-    document.getElementById('missionTarget').innerHTML +=
+    
         <li>Star: ${star}</li>
-    document.getElementById('missionTarget').innerHTML +=
+    
         <li>Distance from Earth: ${distance}</li>
             <li>Number of Moons: ${moons} </li>
-    document.getElementById('missionTarget').innerHTML +=
+    
         </ol> 
 
-        < img src = ${imageUrl} > `
+        <img src = ${imageUrl}> `
 }
 
 function validateInput(testInput) {
@@ -86,25 +86,24 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 
 async function myFetch() {
-    let planetsReturned;
+    let planetsReturned = [];
 
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
-        response.json().then(function(data){
-            console.log(data)
+    planetsReturned = fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
+        return response.json();
         })
         return planetsReturned;
-    });
-}
+    };
+
 
 function pickPlanet(planets) {
     //take in a list of planets
 this.planets = planets;
-let parsedPlanets = JSON.parse(planets)
+//let parsedPlanets = JSON.parse(planets)
     //use math.random() to pick a planet using a randomly-selected index
     let randomIndex = Math.floor(Math.random()*6 + 1)
     //use the random index to select the lucky planet
-    let selectedPlanet = parsedPlanets[randomIndex]
-    console.log(selectedPlanet);
+    let selectedPlanet = planets[randomIndex]
+    return selectedPlanet;
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;

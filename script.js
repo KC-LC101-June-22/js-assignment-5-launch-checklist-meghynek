@@ -10,17 +10,17 @@ window.addEventListener("load", function () {
        let listedPlanets;
        // Set listedPlanetsResponse equal to the value returned by calling myFetch()
        let listedPlanetsResponse = myFetch();
-       console.log(listedPlanets);
+       //console.log("test 1" + listedPlanets);
       listedPlanetsResponse.then(function (result) {
           listedPlanets = result;
-          console.log(listedPlanets);
+          //console.log("test 2" + listedPlanets);
       }).then(function () {
-          console.log(listedPlanets);
+          //console.log("test 3" + listedPlanets);
           // Below this comment, call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
           let missionPlanet = pickPlanet(listedPlanets);
-          console.log(missionPlanet);
+          //console.log("test 4, selected planet: " + missionPlanet);
           //pull planet object, list items for addDestinationInfo parameters
-          let planetName = missionPlanet.planetName;
+          let planetName = missionPlanet.name;
           let diameter = missionPlanet.diameter;
           let star = missionPlanet.star;
           let distance = missionPlanet.distance;
@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
       let pilotInputFull = document.getElementById("pilotName");
       //console.log(pilotInputFull)
       let pilotInput = pilotInputFull.value;
-      alert("pilot: " + pilotInput);
+      //alert("pilot: " + pilotInput);
    
       let copilotInputFull = document.getElementById("copilotName");
       let copilotInput = copilotInputFull.value;
