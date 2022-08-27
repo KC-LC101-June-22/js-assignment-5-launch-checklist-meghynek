@@ -49,7 +49,7 @@ window.addEventListener("load", function () {
       let cargoLevelInput = cargoLevelInputFull.value;
    
       event.preventDefault()
-      alert("submit clicked");
+      //alert("submit clicked");
       formSubmission(document, null, pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
  
    });
