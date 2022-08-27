@@ -13,7 +13,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
     // Here is the HTML formatting for our mission target div.
     document.getElementById('missionTarget').innerHTML =
-       ` <h2>Mission Destination</h2>
+        ` <h2>Mission Destination</h2>
     
         <ol>
         <li> Name: ${name}</li>
@@ -66,38 +66,42 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         document.getElementById("faultyItems").style.visibility = "visible";
         document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} is ready for launch.`
         document.getElementById('copilotStatus').innerHTML = `Copilot ${copilot} is ready for launch`;
-if (fuelLevel >= 10000 && cargoLevel <= 10000){
-    document.getElementById("fuelStatus").innerHTML = "Fuel level high enough fo launch."
-    document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch."
-}
         document.getElementById('launchStatus').innerHTML = 'Shuttle is ready for launch.';
         document.getElementById("launchStatus").style.color = "green";
 
-        if (fuelLevel <= 10000 || cargoLevel >= 10000) {
-            
+        if (fuelLevel < 10000 || cargoLevel > 10000) {
+
             document.getElementById('launchStatus').innerHTML = 'Shuttle not ready for launch.'
             document.getElementById("launchStatus").style.color = "red";
-                if (fuelLevel <= 10000){
-                    document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch.'
-                } else if (cargoLevel >= 100000){
-                    document.getElementById('cargoStatus').innerHTML = "Cargo mass too high for launch."
-                }
+            if (fuelLevel < 10000) {
+                document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch.'
+            } 
+            if (cargoLevel > 100000) {
+                document.getElementById('cargoStatus').innerHTML = "Cargo mass too high for launch."
+            }
+        }
+        if (fuelLevel >= 10000 && cargoLevel <= 10000) {
 
+                document.getElementById('launchStatus').innerHTML = 'Shuttle is ready for launch.'
+                document.getElementById("launchStatus").style.color = "green";
+                document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch.'
+                document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch."
+            }
 
+            // } else if (fuelLevel >= 10000){
+            //     document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch.'
+            // };
+            // if (cargoLevel >= 100000) {
+            //     console.log(cargoLevel)
 
-        // } else if (fuelLevel >= 10000){
-        //     document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch.'
-        // };
-        // if (cargoLevel >= 100000) {
-        //     console.log(cargoLevel)
-            
-        //     document.getElementById('launchStatus').innerHTML = 'Shuttle not ready for launch.'
-        //     document.getElementById("launchStatus").style.color = "red";
-        // } else if (cargoLevel <= 10000) {
-        //     document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch."
-        // }
+            //     document.getElementById('launchStatus').innerHTML = 'Shuttle not ready for launch.'
+            //     document.getElementById("launchStatus").style.color = "red";
+            // } else if (cargoLevel <= 10000) {
+            //     document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch."
+            // }
 
-    }}
+        
+    }
 }; //end bracket
 
 
@@ -106,17 +110,17 @@ async function myFetch() {
 
     planetsReturned = fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
         return response.json();
-        })
-        return planetsReturned;
-    };
+    })
+    return planetsReturned;
+};
 
 
 function pickPlanet(planets) {
     //take in a list of planets
-this.planets = planets;
-//let parsedPlanets = JSON.parse(planets)
+    this.planets = planets;
+    //let parsedPlanets = JSON.parse(planets)
     //use math.random() to pick a planet using a randomly-selected index
-    let randomIndex = Math.floor(Math.random()*6 + 1)
+    let randomIndex = Math.floor(Math.random() * 6 + 1)
     //use the random index to select the lucky planet
     let selectedPlanet = planets[randomIndex]
     return selectedPlanet;
