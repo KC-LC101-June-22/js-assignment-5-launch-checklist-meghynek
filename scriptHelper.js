@@ -35,7 +35,7 @@ function validateInput(testInput) {
         return "Empty"
     } else if (isNaN(testInput) === true) {
         return "Not a Number"
-    } else if (typeof (testInput) === "number") {
+    } else if (typeof (Number(testInput)) === "number") {
         return "Is a Number"
     }
 }
@@ -118,9 +118,8 @@ async function myFetch() {
 function pickPlanet(planets) {
     //take in a list of planets
     this.planets = planets;
-    //let parsedPlanets = JSON.parse(planets)
     //use math.random() to pick a planet using a randomly-selected index
-    let randomIndex = Math.floor(Math.random() * 6 + 1)
+    let randomIndex = Math.floor(Math.random() * planets.length)
     //use the random index to select the lucky planet
     let selectedPlanet = planets[randomIndex]
     return selectedPlanet;
